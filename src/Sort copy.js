@@ -41,12 +41,16 @@ function displayTasks() {
     
     const taskLi = document.createElement("li");
     const deleteBtn = document.createElement("button");
-    
-    deleteBtn.textContent = "x";
+    const editBtn = document.editBtn("button");
+
+    deleteBtn.textContent = "x"
+    editBtn.textContent = "EDIT"
     deleteBtn.addEventListener("click", (e) => deleteTask(e, task))
+    deleteBtn.addEventListener("click", (e) => editTask(e, task))
     taskLi.textContent = task.task + " " + task.dueDate + " ";
     taskLi.style.color = getPriorityColor(task.priorityLevel);
     taskLi.appendChild(deleteBtn);
+    taskLi.appendChild(editBtn)
     taskUl.appendChild(taskLi);
   })
 }
@@ -57,6 +61,13 @@ function deleteTask(e, task) {
   taskObjArr = taskObjArr.filter((element) => element.task !== task.task)
   
   e.target.parentNode.remove()
+}
+
+
+//Edit Task Button Function
+
+function editTask(e){
+  taskObjArr = taskObjArr.
 }
 
 // Change colors according to the priorities.
